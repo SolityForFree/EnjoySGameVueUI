@@ -1,10 +1,16 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-  <!-- <HelloWorld msg="Hey, what's your deal? :cool:"/> -->
-  <div v-if="game">
-  <GodotGame/>
+
+  <div v-if="menu">
+    <h1> Welcome to bottanica erotica! </h1>
+    <div class="button-container">
+      <button @click="CreateServer">Create Server</button>
+      <button @click="JoinGame">Join Game</button>
+    </div>
   </div>
-  <div v-else>
+  <div v-else-if="createServer">
+    <GodotGame :server="server"/>
+  </div>
+  <div v-else-if="joinGame">
     <h1>The QR Code scanner.</h1>
     <qrcode-stream @detect="onDetect"></qrcode-stream>
   </div>
@@ -12,8 +18,29 @@
 
 <script setup>
 import {ref} from 'vue'
-const game = ref(false)
+const createServer = ref(false)
+const joinGame = ref(false)
+const menu = ref(true)
+let server = ""
+//const server = ""
+function onDetect (detectedCodes) 
+{
+    server = detectedCodes[0].rawValue
+    createServer.value = true
+    console.log(detectedCodes[0].rawValue)
+}
 
+function CreateServer()
+{
+  server = (Math.random() + 1).toString(36).substring(3);
+  createServer.value = true
+  menu.value = false
+}
+function JoinGame()
+{
+  menu.value = false
+  joinGame.value = true  
+}
 </script>
 
 <script>
@@ -27,13 +54,9 @@ export default {
     // HelloWorld,
     GodotGame,
     QrcodeStream
-  },
-  methods: {
-  onDetect (detectedCodes) {
-    console.log(detectedCodes)
   }
 }
-}
+
 
 </script>
 
@@ -45,5 +68,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.button-container {
+  display: block;
+  gap: 10px; /* Adjust the gap between buttons */
 }
 </style>
