@@ -6,5 +6,7 @@ module.exports = defineConfig({
     workboxOptions: {
         skipWaiting: true
     },
+    name : "ESGVueUI",
+    themeColor : "#000000"
 }
 })
