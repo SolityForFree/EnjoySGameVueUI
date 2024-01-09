@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <button @click="redirectToGodot">Redirect to godot!</button>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -12,7 +13,7 @@
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa" target="_blank" rel="noopener">pwa</a></li>
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
     </ul>
-    <h3>Essential Links</h3>
+    <h3>Essential Linkss</h3>
     <ul>
       <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
       <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
@@ -30,6 +31,16 @@
     </ul>
   </div>
 </template>
+
+<script setup>
+
+function redirectToGodot()
+{
+  console.log("redirecting")
+  window.location.href = "http://localhost:3000/enjoysgame/";
+}
+
+</script>
 
 <script>
 export default {
