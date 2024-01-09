@@ -1,12 +1,15 @@
 <template>
-
-  <div v-if="menu">
+  <div v-if="menu" class="h-100">
+    <div class="container-fluid h-100">
     <h1> Welcome to bottanica erotica! </h1>
-    <div class="button-container">
-      <button @click="CreateServer">Create Server</button>
-      <button @click="JoinGame">Join Game</button>
+      <div class="h-100 d-flex align-items-center justify-content-center">
+      <div class="d-grid gap-3 flex-fill">
+        <button @click="CreateServer" class="btn btn-primary btn-lg">Create Server</button>
+        <button @click="JoinGame" class="btn btn-primary btn-lg">Join Game</button>      
+      </div>
+      </div>
     </div>
-  </div>
+  </div> 
   <div v-else-if="createServer">
     <GodotGame :server="server"/>
   </div>
@@ -61,6 +64,7 @@ export default {
 </script>
 
 <style>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -69,9 +73,12 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-
-.button-container {
-  display: block;
-  gap: 10px; /* Adjust the gap between buttons */
+body {
+      min-height: 100vh;
+      display: flex;
+      /* justify-content: center; */
+      /* align-items: center; */
+      background-color: #ff2fff;
 }
+
 </style>
