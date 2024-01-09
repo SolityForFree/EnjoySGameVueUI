@@ -5,6 +5,6 @@ module.exports = defineConfig({
     workboxOptions: {
         skipWaiting: true
     },
-  publicPath : '/EnjoySGameVueUI/'
+  publicPath : '/EnjoySGameVueUI/dist'
 }
 })
