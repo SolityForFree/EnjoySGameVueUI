@@ -13,9 +13,13 @@
   <div v-else-if="createServer">
     <GodotGame :server="server"/>
   </div>
-  <div v-else-if="joinGame">
-    <h1>The QR Code scanner.</h1>
-    <qrcode-stream @detect="onDetect"></qrcode-stream>
+  <div v-else-if="joinGame" class="h-100 container-fluid">
+    <div class="h-75 d-flex align-items-center justify-content-center">
+      <div class="d-flex flex-column" >
+      <h2 class="d-flex justify-content-center display-1 text-light text-center mb-5">Scan Game QR Code.</h2>
+        <qrcode-stream @detect="onDetect"></qrcode-stream>
+      </div>
+    </div>
   </div>
 </template>
 
