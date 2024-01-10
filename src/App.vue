@@ -1,9 +1,9 @@
 <template>
-  <div v-if="menu" class="h-100">
-    <div class="container-fluid h-100">
-    <h1> Welcome to bottanica erotica! </h1>
-      <div class="h-100 d-flex align-items-center justify-content-center">
-      <div class="d-grid gap-3 flex-fill">
+  <div v-if="menu" class="h-100 container-fluid">
+    <div class="h-75 d-flex align-items-center justify-content-center">
+      <div class="d-flex flex-column" >
+        <h2 class="d-flex justify-content-center display-1 text-light text-center mb-5"> Welcome to bottanica erotica! </h2>
+        <div class="d-grid gap-3 flex-fill">
         <button @click="CreateServer" class="btn btn-primary btn-lg">Create Server</button>
         <button @click="JoinGame" class="btn btn-primary btn-lg">Join Game</button>      
       </div>
@@ -71,6 +71,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center; */
   color: #2c3e50;
+  width: 100%;
   /* margin-top: 60px; */
 }
 
@@ -79,7 +80,11 @@ body {
       display: flex;
       /* justify-content: center; */
       /* align-items: center; */
-      background-color: #ff2fff;
+      background-color: #000000;
+}
+
+.no-padding {
+    padding: 0 !important;
 }
 
 </style>
